@@ -40,8 +40,7 @@ heap_t *heap_crear(cmp_func_t cmp){
 	return heap;
 }
 
-/* swap() intercambia dos valores.
- */
+//Intercambia dos valores en un arreglo.
 void swap (void** datos, size_t posicion, size_t pos_padre){
 	void* auxiliar = datos[pos_padre];
 	datos[pos_padre] = datos[posicion];
@@ -63,6 +62,8 @@ void *heap_ver_max(const heap_t *heap){
 	return NULL;
 }
 
+//Dado un arreglo y una posicion le aplica upheap al elemento en esa posicion
+//en el arreglo.
 void upheap(void** datos, void* dato, size_t posicion, cmp_func_t cmp){
 	if (posicion == 0)
 		return;
@@ -103,6 +104,8 @@ bool heap_encolar(heap_t *heap, void *elem){
 	return true;	
 }
 
+//Dado un arreglo y una posicion aplica downheap al elemento en esa posicion
+//en el arreglo.
 void downheap(void **datos, size_t cant, size_t pos, cmp_func_t cmp){
 	if(pos >= cant){
 		return;
@@ -153,6 +156,7 @@ void heap_destruir(heap_t *heap, void destruir_elemento(void *e)){
 	free(heap);	
 }
 
+//Dado un arreglo le aplica heapify dejandolo ordenado en forma de heap.
 void heapify(void** arreglo, void* dato, size_t posicion, cmp_func_t cmp){
 	if (posicion < 0)
 		return;
